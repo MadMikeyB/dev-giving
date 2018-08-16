@@ -1,0 +1,25 @@
+@mixin button-colours($colours) {
+  @each $colour in $colours {
+    &.btn-#{$colour} {
+      @apply bg-#{$colour} text-white border-#{$colour}-dark;
+
+      &:hover {
+        @apply bg-#{$colour}-light;
+      }
+    }
+  }
+}
+
+a.btn {
+  @apply rounded border-b-4 border-l border-r shadow no-underline inline-block text-grey-darkest uppercase text-sm;
+
+  i, span {
+    @apply py-2 px-2 inline-block h-full;
+  }
+
+  @include button-colours(('blue', 'red', 'green'));
+
+  &.btn-icon {
+    min-width: 32px;
+  }
+}

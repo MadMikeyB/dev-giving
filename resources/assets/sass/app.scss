@@ -1,0 +1,113 @@
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed');
+@import "~@fortawesome/fontawesome-pro/scss/fontawesome";
+@import "~@fortawesome/fontawesome-pro/scss/solid";
+@import "~@fortawesome/fontawesome-pro/scss/brands";
+
+@import "buttons";
+
+@mixin font-roboto() {
+  font-family: 'Roboto', sans-serif;
+}
+
+@mixin font-roboto-condensed() {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+  @apply h-full bg-blue-lighter text-blue-darker;
+  @include font-roboto();
+
+  .container {
+    @apply mx-auto;
+  }
+}
+
+main {
+  @apply w-1/2 mx-auto text-center mt-10 p-2;
+
+  @media(max-width: 992px) {
+    @apply w-full;
+  }
+
+  .card {
+    @apply my-4 shadow rounded bg-white;
+
+    div.card-header {
+      @apply p-4 rounded-t bg-blue-darker text-white;
+    }
+
+    div.card-body {
+      @apply p-4;
+    }
+
+    div.card-list {
+      div.list-item {
+        @apply text-left p-4 border-t flex content-start;
+
+        div.details, div.status {
+          @apply self-start h-full;
+        }
+
+        div.details {
+          @apply flex-grow;
+        }
+
+        div.status {
+          @apply flex content-center pr-2;
+        }
+
+        small {
+          @apply text-grey-dark;
+        }
+
+        div.topics {
+          @apply mt-2 leading-normal;
+
+          span.topic {
+            @apply text-xs rounded text-white bg-blue-light p-1;
+          }
+        }
+      }
+    }
+  }
+
+  h1 {
+    @apply text-4xl p-2 inline-block text-blue-darker;
+    @include font-roboto-condensed();
+  }
+
+  header {
+    @apply p-2;
+
+    nav {
+      @apply p-2 flex justify-between items-center;
+
+      & > * {
+        @apply ml-2;
+      }
+
+      div.me {
+        @apply px-2 flex items-center;
+
+        .avatar {
+          img {
+            @apply rounded-full;
+            max-width: 35px;
+          }
+        }
+
+        .name {
+          @apply text-center pl-2;
+        }
+      }
+    }
+  }
+
+  p {
+    @apply mb-4;
+  }
+}
